@@ -1,0 +1,10 @@
+items
+Student Id- needed to get into su - found random location but not su
+Room Key - needed to enter room - found random location but not room
+bike - speeds up travel but is locked up needs key to unlock- accomdation
+bike key - unlocks bike - found in room
+evidence - wins game by clearing your name - at the bar you where in
+plane ticket - wins game by escaping - random
+wallet - contains money and maybe reciept - starts on you
+bribe item - needed to gain evidence to save krill - random
+
