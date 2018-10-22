@@ -14,7 +14,9 @@ room_student_union = {
    
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[item_id,]
 }
 
 room_pub = {
@@ -31,7 +33,9 @@ room_pub = {
 
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[]
 }
 
 room_accomadation = {
@@ -42,13 +46,15 @@ room_accomadation = {
 
     "exits": {"north":"Student Union", "east":"Pub", "south":"Bar", "west": "Police Station", "in":"Bedroom"},
 
-    "items": [],
+    "items": [item_bike],
 
     "travel": {"north":0.3, "east":0.1, "south":0.4, "west": 0.2, "in":0.05},
 
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[item_bike_key,item_room_keys]
 }
 room_bedroom = {
     "name": "Your Bedroom",
@@ -58,13 +64,15 @@ room_bedroom = {
 
     "exits" :{"out":"Accomadation"},
 
-    "items": [],
+    "items": [item_bike_key],
 
      "travel": {"out":0.05},
 
     "locational_items":[],
 
-    "open":False
+    "open":False,
+
+    "useable":[]
 }
 
 room_police_station = {
@@ -81,7 +89,9 @@ room_police_station = {
     
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[item_evidence]
 
 }
 
@@ -99,7 +109,9 @@ room_comp_sci = {
 
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[]
 
 }
 
@@ -117,7 +129,9 @@ room_bar ={
     
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[]
     
 }
 
@@ -135,7 +149,9 @@ room_castle = {
 
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[]
 
 }
 
@@ -153,7 +169,9 @@ room_club = {
 
     "locational_items":[],
 
-    "open":True
+    "open":True,
+
+    "useable":[]
 
 }
 
