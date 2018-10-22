@@ -4,7 +4,7 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
-
+import random
 
 def list_of_items(items):
 
@@ -183,6 +183,8 @@ def move(exits, direction):
 # This is the entry point of our program
 def main():
 
+    setup()
+
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
@@ -207,11 +209,33 @@ def game_clock(traveltime):
 def is_room_open(exits,direction):
 
     return rooms[exits[direction]]["open"]
-    
 
 def win_check():
     if count_down <= 0:
         print("out of time")
+
+def setup():
+
+    item_randomiser()
+
+def item_randomiser():
+    '''first run through these items are allowed to be randomly placed anywhere'''
+    item_list =   (item_handbook, item_laptop, item_money, item_pen)
+    for item in item_list:
+        x = random.randint(0,len(rooms))
+        room_to_add_to =(list(rooms.keys())[x])
+        rooms[room_to_add_to]["items"].append(item)
+
+    '''these new items cannot be place in bedroom or the student union'''
+    item_list = (item_id,item_biscuits)
+    safe_rooms = (list(rooms.keys()))
+    safe_rooms.remove("Bedroom")
+    safe_rooms.remove("Student Union")
+    print(safe_rooms)
+    for item in item_list:
+        x = random.randint(0,len(rooms))#
+        room_to_add_to = safe_rooms[x]
+        rooms[room_to_add_to]["items"].append(item)
 
 
 if __name__ == "__main__":
