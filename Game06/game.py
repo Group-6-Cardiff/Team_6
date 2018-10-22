@@ -129,6 +129,15 @@ def execute_map():
                                       ------- 
         """)
 
+
+def execute_use(item_id):
+    for item in inventory:
+        if item["id"] == item_id:
+            inventory.remove(item) #this assumes items can only be used once....
+            #add specific usage data here
+            print (str(item) + " has been used")
+            return
+    print("You cannot use that.")
         
 def execute_command(command):
 
@@ -155,6 +164,10 @@ def execute_command(command):
             print("Drop what?")
     elif command[0] == "map":
             execute_map()
+            
+    #executes use command:
+    elif command[0] == "use":
+        execute_use(command[1])
             
     else:
         print("This makes no sense.")
@@ -186,7 +199,7 @@ def main():
     setup()
 
     # Main game loop
-    while True:
+    while True:  ################## Needs changing when game victory conditions made######
         # Display game status (room description, inventory etc.)
         print("")
         mins = ((count_down * 60)%60)
