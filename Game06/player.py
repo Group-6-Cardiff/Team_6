@@ -7,4 +7,4 @@ inventory = []
 
 # Start game at the reception
 current_room = rooms["Police Station"]
-count_down = 1.0
+count_down = 12.0
