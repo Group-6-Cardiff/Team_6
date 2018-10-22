@@ -222,7 +222,7 @@ def item_randomiser():
     '''first run through these items are allowed to be randomly placed anywhere'''
     item_list =   (item_handbook, item_laptop, item_money, item_pen)
     for item in item_list:
-        x = random.randint(0,len(rooms))
+        x = random.randint(0,(len(rooms)-1))
         room_to_add_to =(list(rooms.keys())[x])
         rooms[room_to_add_to]["items"].append(item)
 
@@ -231,9 +231,9 @@ def item_randomiser():
     safe_rooms = (list(rooms.keys()))
     safe_rooms.remove("Bedroom")
     safe_rooms.remove("Student Union")
-    print(safe_rooms)
     for item in item_list:
-        x = random.randint(0,len(rooms))#
+        x = random.randint(0,(len(safe_rooms)-1))#
+
         room_to_add_to = safe_rooms[x]
         rooms[room_to_add_to]["items"].append(item)
 
