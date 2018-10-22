@@ -132,11 +132,13 @@ def execute_map():
 
 def execute_use(item_id):
     for item in inventory:
-        if item["id"] == item_id:
+        if item["id"] == item_id and item["id"] in room["useable"]: #will crash as usable items does not exist yet
             inventory.remove(item) #this assumes items can only be used once....
             #add specific usage data here
-            print (str(item) + " has been used")
+            print (str(item["id"]) + " has been used")
             return
+        else:
+            #statement whether item cannot be used or if used up due to wrong place?
     print("You cannot use that.")
         
 def execute_command(command):
