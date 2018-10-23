@@ -4,7 +4,7 @@ item_id = {
     "name": "id card",
 
     "description":
-        """Your new shiny student ID card. Expires 1 June 2019.
+        """You new shiny student ID card. Expires 1 June 2017.
     You wonder why they have printed a suicide hotline number on it?..."""
 }
 
@@ -14,7 +14,7 @@ item_room_keys = {
     "name": "Room Keys",
 
     "description":
-        "Better not lose them..."
+        "Better not to lose them..."
 }
 
 item_wallet = {
@@ -24,7 +24,7 @@ item_wallet = {
 
     "description":
         """Lucky you! You still have your wallet after last night. You look inside
-        hoping that you still have money for your tuition fee but what's left is 20 quid and a receipt
+        hoping that you still have money for tuition fee but what's left is 20 quid and a receipt
         """
 }
 
@@ -53,8 +53,8 @@ item_evidence = {
 
     "name": "a video evidence",
 
-    "description": """VHS recording from your favourite pub's CCTV which
-is evidence that can prove your innocence. Who is still using VHS?""",
+    "description": """VHS recording from your favourite pub's CCTV where
+is evidence of your innocence. Who is still using VHS?""",
 
     "lock": True
 }
@@ -64,15 +64,15 @@ item_gold_bar = {
 
     "name": "GOLD BAR",
 
-    "description": """Well it's a GOLD BAR!!! You can buy anything you have ever wished for.
-You can also use it as a bribe"""
+    "description": """Well it's a GOLD BAR!!! You can get anything you ever wished.
+You can use it as a bribe"""
 }
 item_plane_ticket = {
     "id": "planeticket",
 
     "name": "a plane ticket to Maldives",
 
-    "description": "A plane ticket for two to the Maldives where it's always sunny",
+    "description": "A plane ticket for two to Maldives where it's always sunny",
 
     "lock": True
 }
@@ -91,3 +91,53 @@ item_money = {
     "description":"It's regular cash...... what were you expecting?"
 
 }
+item_coins = {
+    "id": "coins",
+
+    "name":"Coins ",
+
+    "description":""
+}
+item_beer = {
+    "id": "beer",
+
+    "name":"Bottle of beer ",
+
+    "description":"Bottle of local Ale, It's a bit warm"
+}
+item_book = {
+    "id": "book",
+
+    "name":"Book ",
+
+    "description":"Think Python. It's weird that it's laying on the floor"
+}
+item_safe = {
+    "id": "safe",
+
+    "name":"Safe ",
+
+    "description":"Maybe there is something valuable there"
+}
+item_phone_box = {
+    "id": "phone_box",
+
+    "name":"Phone box ",
+
+    "description":"Insert coins here"
+}
+item_bookshelf = {
+    "id": "bookshelf",
+
+    "name":"Bookshelf ",
+
+    "description":"One of the books is missing"
+}
+item_fridge = {
+    "id": "fridge",
+
+    "name":"Fridge ",
+
+    "description":"Well it's empty"
+}
+

@@ -4,7 +4,6 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
-from you_are_here_map import *
 import random
 import webbrowser
 global plane_flag
@@ -102,32 +101,32 @@ def execute_drop(item_id):
             return
     print("You cannot drop that.")
 
-#def execute_map():
-#    # when called this function displays the world map for the user
-#
-#    print("""
-#        N
-#      W + E
-#        S
-#                                                        ---------                               
-#                                         ---------------|Student|--------------|                                
-#                                         |              |Union  |              |                      
-#                                         |              ---------              |                             
-#                                    ------------            |                  |    
-#                                    | Police   |        -------------      ---------
-#                   -----------------| Station  |--------|Accomadtion|------| Pub   |
-#                   |                |          |        -------------      ---------                                                                                                                                 
-#                   |                ------------              |                |                                                                                                                                     
-#                   |                     |                    |                | 
-#                   |                     |                    |                | 
-#             ------------                |               ----------        -----------
-#             | Castle   |----------------+---------------| Bar    |--------| Comp Sci|                    
-#             |          |                |               ----------        -----------                     
-#             ------------                |                   | 
-#                   |                  -------                |  
-#                   |------------------|Club |----------------|
-#                                      ------- 
-#        """)
+def execute_map():
+    # when called this function displays the world map for the user
+
+    print("""
+        N
+      W + E
+        S
+                                                        ---------                               
+                                         ---------------|Student|--------------|                                
+                                         |              |Union  |              |                      
+                                         |              ---------              |                             
+                                    ------------            |                  |    
+                                    | Police   |        -------------      ---------
+                   -----------------| Station  |--------|Accomadtion|------| Pub   |
+                   |                |          |        -------------      ---------                                                                                                                                 
+                   |                ------------              |                |                                                                                                                                     
+                   |                     |                    |                | 
+                   |                     |                    |                | 
+             ------------                |               ----------        -----------
+             | Castle   |----------------+---------------| Bar    |--------| Comp Sci|                    
+             |          |                |               ----------        -----------                     
+             ------------                |                   | 
+                   |                  -------                |  
+                   |------------------|Club |----------------|
+                                      ------- 
+        """)
 
 def execute_use(item_id):
     for item in inventory:
@@ -162,9 +161,7 @@ def execute_command(command):
         else:
             print("Drop what?")
     elif command[0] == "map":
-        #calls map function from other file
-        current_position_map(current_room)
-        #print(current_room)
+        execute_map()
     # executes use command:
     elif command[0] == "use":
         if len(command) > 1:
@@ -198,27 +195,24 @@ def move(exits, direction):
 
 # This is the entry point of our program
 def main():
-    x = True
-    setup()
-    print("---------------------------------------------------------------------------------------------------")
+
     print("""
- .d8888b.                    d8b                        888    d8P  d8b         d8b 888 888      
-d88P  Y88b                   Y8P                        888   d8P   Y8P         Y8P 888 888      
-Y88b.                                                   888  d8P                    888 888      
- "Y888b.    8888b.  888  888 888 88888b.   .d88b.       888d88K     888 888d888 888 888 888      
-    "Y88b.     "88b 888  888 888 888 "88b d88P"88b      8888888b    888 888P"   888 888 888      
-      "888 .d888888 Y88  88P 888 888  888 888  888      888  Y88b   888 888     888 888 888      
-Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888      888   Y88b  888 888     888 888 888      
- "Y8888P"  "Y888888   Y88P   888 888  888  "Y88888      888    Y88b 888 888     888 888 888      
-                                               888                                               
-                                          Y8b d88P                                               
-                                           "Y88P"                                                                           
+
+ .d8888b.                    d8b                         888    d8P          d8b 888 888 
+d88P  Y88b                   Y8P                         888   d8P           Y8P 888 888 
+Y88b.                                                    888  d8P                888 888 
+ "Y888b.    8888b.  888  888 888 88888b.   .d88b.        888d88K     888d888 888 888 888 
+    "Y88b.     "88b 888  888 888 888 "88b d88P"88b       8888888b    888P"   888 888 888 
+      "888 .d888888 Y88  88P 888 888  888 888  888       888  Y88b   888     888 888 888 
+Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888       888   Y88b  888     888 888 888 
+ "Y8888P"  "Y888888   Y88P   888 888  888  "Y88888       888    Y88b 888     888 888 888 
+                                               888                                       
+                                          Y8b d88P                                       
+                                           "Y88P"                                        
             """)
     'Colossal'
-    print("---------------------------------------------------------------------------------------------------")
-    #for x in range(0:5)
-       # print("")
-    print("After a wild night out you and your new friend/drinking partner Kirill Sidorov")
+    setup()
+    x = True
     # Main game loop
     while x is True:
         '''webbrowser.open("D:\Game06\Music.mp3")  '''
@@ -236,12 +230,7 @@ Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888      888   Y88b  888 888     
         execute_command(command)
 
         x = win_check()
-        
-    leaderboard()
-        
 
-
-    
 def game_clock(traveltime):
     global count_down
     count_down = count_down - traveltime
@@ -254,16 +243,16 @@ def win_check():
     global evidence_flag
     '''Contains the victory conditions and also the losing conditions'''
     if count_down <= 0:
-        print("you are out of time Kirill and you are going to spend the rest of your days in a cell")
+        print("you are out of time kirll and you are going to spend the rest of your days in a cell")
         print("game over")
         return False
 
     if plane_flag is True:
-        print("Well you done it you've escaped leaving Kirill behind to his fate")
+        print("Well you done it you've escaped leaving kirll behind to his fate")
         return False
 
     if evidence_flag is True:
-        print("You've proven Kirill innoccent well done")
+        print("You've proven Kirll innoccent well done")
         return False
     
     return True
@@ -334,14 +323,26 @@ def item_use(item):
         rooms["Bedroom"]["open"] = True
         print("Your Bedroom is now open")
 
-    if item["id"] == "id":
-            print("This package must be for you then")
-            
     if item["id"] == "bike":
         for room in rooms:
             for direction in rooms[room]["travel"]:
                 rooms[room]["travel"][direction] = rooms[room]["travel"][direction]/2
         print("You'll now travel twice as fast")
+
+    if item["id"] == "id":
+        rooms["Staff room"]["open"]=True
+        print("You jammed open the doors")
+
+    if item["id"] == "safe":
+        pin=int(input(""))
+        if pin==("1234"):
+            current_room["items"].append(item_coins)
+        else:
+            print("Invalid pin")
+
+    if item["id"] == "phone_box":
+       if input("For emergeny only")=="999":
+           rooms["Secret room"]["open"]=True
 
     if item["id"] == "planeticket":
         global plane_flag
@@ -364,6 +365,8 @@ def item_use(item):
                 print("The Bartender looks hungrily at it, looking left and right quickly he takes it from you and "
                       "slowly goes into the staff leaving the evidence behind him")
 
+
+
 def item_lock_check(item):
     '''checks only the items that actually have the lock dict'''
     if item["id"] == "bike":
@@ -380,38 +383,6 @@ def item_lock_check(item):
             return True
 
     return False
-
-def leaderboard():
-    time_taken = 12 - count_down
-    mins = ((time_taken * 60) % 60)
-    score = str(int(time_taken)) + str(int(mins))
-    print("you took " + str(int(time_taken)) + " hrs " + str(int(mins)) + " minutes")
-    adding_to_leaderboard(score)
-    print_leaderboard()
-
-        
-def adding_to_leaderboard(score):
-    name = input("what is your name? ")
-    leaderboard = open("LeaderBoard.txt","a")
-    entry = (name + "," + score + "\n")
-    leaderboard.write(entry)
-
-def print_leaderboard():
-    score_track = {}
-    leaderboard = open("LeaderBoard.txt","r")
-    for line in leaderboard:
-        score_track[line[-4:-1]] = line[:-5]
-
-    score_ordered =(sorted(score_track))
-
-
-    for y in range(0,len(score_ordered)):
-        print(str(y+1) + " : " + score_ordered[y] + " " + score_track[score_ordered[y]])
-        tally =+ 1
-
-
-
-    
 ''' 
 Deadly Roulette Kevin MacLeod (incompetech.com) 
 Licensed under Creative Commons: By Attribution 3.0
