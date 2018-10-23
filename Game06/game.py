@@ -218,7 +218,6 @@ Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888       888   Y88b  888     888
         '''webbrowser.open("D:\Game06\Music.mp3")  '''
         '''A soundtrack might need more work.....definatly needs more work'''
         # Display game status (room description, inventory etc.)
-        print(item_receipt["description"])
         print("")
         mins = ((count_down * 60) % 60)
         print(str(int(count_down)) + " hours " + str(int(mins)) + " minutes remaining")
@@ -244,18 +243,18 @@ def win_check():
     global evidence_flag
     '''Contains the victory conditions and also the losing conditions'''
     if count_down <= 0:
-        print("you are out of time krill and you are going to spend the rest of your days in a cell")
+        print("you are out of time kirll and you are going to spend the rest of your days in a cell")
         print("game over")
         return False
 
     if plane_flag is True:
-        print("Well you done it you've escaped leaving krill behind to his fate")
+        print("Well you done it you've escaped leaving kirll behind to his fate")
         return False
 
     if evidence_flag is True:
-        print("You've proven Krill innoccent well done")
+        print("You've proven Kirll innoccent well done")
         return False
-
+    
     return True
 
 def setup():
