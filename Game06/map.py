@@ -4,7 +4,13 @@ room_student_union = {
     "name": "The Student Union",
 
     "description":
-    """The SU""",
+    """You are in the main entance of Cardiff University students union
+at the ground floor. The students union is a very large building which has many stores at the ground level.
+You can choose to go up via the lift or stairs. In the second level, you can see a reception which involves
+everything regarding club nights at Y PLAS. It seems the recepcionist is a bit sleepy.
+At your left you can see the Y PLAS entrance,There are 2 possible exits.
+You can exit the same way you entered the SU,
+or you can go down the stairs outside floor 2.""",
 
     "exits": {"south": "Accomadation", "east": "Pub", "west": "Police Station"},
 
@@ -23,7 +29,13 @@ room_pub = {
     "name": "The Pub",
 
     "description":
-    """The local Pub.""",
+    """You are in the entrance of the pub "Pryzm". At the entrance, you can see that there is a small
+reception with a nervous recepcionist. It seems she will ignore you until she calms down.
+Inside, there are various paths you can take, however the biggest corridor
+leads to the main bar in which the barman is serving a couple of coctails
+to two people dressed with drench coats and sun glasses. The room is quite ample, however,
+you can see that if you take the next path, you will reach an even bigger room which looks
+like the main disco area. The only exit of the pub is the main entrance.""",
 
     "exits":  {"north": "Student Union", "south":"Comp Sci", "west":"Accomadation"},
 
@@ -42,7 +54,12 @@ room_accomadation = {
     "name": "Your Accomadation",
 
     "description":
-    """Your Accomadation""",
+    """You are in a new student accomodation with a modern but familiar design.
+At the entrance, there is a common area with a recepcionist named J.P
+looking at the CCTV cameras, and a pool table surrounded by 3 people
+chatting about last night out.
+Next to you there is a door leading to different corridors with rooms,
+Your room is in the left side of the first corridor.""",
 
     "exits": {"north":"Student Union", "east":"Pub", "south":"Bar", "west": "Police Station", "in":"Bedroom"},
 
@@ -60,7 +77,11 @@ room_bedroom = {
     "name": "Your Bedroom",
 
     "description":
-    """Your Bedroom""",
+    """You are in your room. It's a small room but it feels really familiar and confortable.
+There is a big window with views to the bar in the south.
+In your room, you have a single bed, a quite wide messy desk with your desktop computer and some items.
+You also have a closet full of clothes.
+There is only one entry to the room.""",
 
     "exits" :{"out":"Accomadation"},
 
@@ -79,7 +100,15 @@ room_police_station = {
     "name": "The Police Station",
 
     "description":
-    """The Police Station""",
+    """You are now in the police station. It's a large grey cold building.
+Inside, you can feel the pressure of authority, and you are worried for your friend Kirill,
+who is keept inside a cell at the police station.
+In the main entrance, there is a receptionist waiting with an angry face,
+and in the waiting area you can see a homeless man with a familiar face,
+however, you cannot remember him just yet.
+There are several corridors inside the station,
+some leading to offices and others leading to the cells.
+Kirill is in the very last cell in the last corridor""",
 
     "exits": {"north":"Student Union", "east": "Accomadation", "south": "Club" , "west":"Castle"},
 
@@ -99,7 +128,8 @@ room_comp_sci = {
     "name":"The Comp Sci Buildings",
 
     "description":
-    """Comp Sci.""",
+    """You are now in the Comp Sci department here is where you'll be studying for
+     the next 3 years..... if you manage to clear your name""",
 
     "exits": {"north": "Pub", "west":"Bar"},
 
@@ -119,7 +149,12 @@ room_bar ={
     "name":"The Bar",
 
     "description":
-    "The Bar",
+    """You are now in the entrance of the bar called "Central Bar". You can see that
+there are several tables and a wide bar in which there is a barman waiting to serve customers.
+At your right, you can see that there are stairs to reach the first floor of the bar.
+In the first floor, there are more tables and another barman. If you look closely,
+you can see a small box next to the till. It seems it can be opened without a key. The only exit
+is the main entrance of the bar.""",
 
     "exits":{"north":"Accomadation", "east":"Comp Sci", "south":"Club", "west":"Castle"},
 
@@ -139,7 +174,11 @@ room_castle = {
     "name": "The Castle",
 
     "description":
-    "The Castle",
+    """You are at the entrance of Cardiff Castle. At the entrance, you can see a reception in which
+you can pay for your entrance ticket, or alternatively, show your castle card. You can only see two
+paths. The left path will guide you to the top of the castle, and the right path will lead you to the
+inners of the castle. You can see people walking around, as well as people having a rest on the grass
+at the entrance of the castle. The only exit of the castle is the main entrance.""",
 
     "exits":{"north":"Police Station", "east":"Bar", "south":"Club"},
 
@@ -159,7 +198,12 @@ room_club = {
     "name": "The Club",
 
     "description":
-    "The Club",
+    """You are now in the entrance of a club called Revs. At the entrance, you can see a security guard
+looking very closely to you. Inside, you can see that there are big tables and a worried barman next to
+the till. The club is not very crowded for now, but it's likely to get busier in the next few minutes.
+You can see different paths to take, however the club is not very big, which means that everything you
+can see at the moment is probably what you will find in the club. The only exit of the club is the
+main entrance.""",
 
     "exits":{"north":"Police Station", "west":"Castle", "east":"Bar"},
 

@@ -18,7 +18,6 @@ def list_of_items(items):
 
     return (string[:-2])
 
-
 def print_room_items(room):
     items = list_of_items(room["items"])
     if len(items) == 0:
@@ -27,12 +26,10 @@ def print_room_items(room):
         print("There is " + items + " here.")
         print("")
 
-
 def print_inventory_items(items):
     items = list_of_items(inventory)
     print("You have " + items + ".")
     print("")
-
 
 def print_room(room):
     print()
@@ -42,15 +39,12 @@ def print_room(room):
     print()
     print_room_items(room)
 
-
 def exit_leads_to(exits, direction):
     return rooms[exits[direction]]["name"]
-
 
 def print_exit(direction, leads_to):
     print("GO " + direction.upper() + " to " + leads_to + ". This will take " + str(
         int(current_room["travel"][direction] * 60)) + " minutes")
-
 
 def print_menu(exits, room_items, inv_items):
     print("You can:")
@@ -68,10 +62,8 @@ def print_menu(exits, room_items, inv_items):
 
     print("What do you want to do?")
 
-
 def is_valid_exit(exits, chosen_exit):
     return chosen_exit in exits
-
 
 def execute_go(direction):
     global current_room
@@ -91,7 +83,6 @@ def execute_inspect(item_id):
             return
     print("You cannot inspect that that.")
 
-
 def execute_take(item_id):
     for item in current_room["items"]:
         if item["id"] == item_id:
@@ -102,7 +93,6 @@ def execute_take(item_id):
             return
     print("You cannot take that.")
 
-
 def execute_drop(item_id):
     for item in inventory:
         if item["id"] == item_id:
@@ -110,7 +100,6 @@ def execute_drop(item_id):
             current_room["items"].append(item)
             return
     print("You cannot drop that.")
-
 
 def execute_map():
     # when called this function displays the world map for the user
@@ -139,7 +128,6 @@ def execute_map():
                                       ------- 
         """)
 
-
 def execute_use(item_id):
     for item in inventory:
         if item["id"] == item_id and item in current_room["useable"]:
@@ -150,7 +138,6 @@ def execute_use(item_id):
 
     # statement whether item cannot be used or if used up due to wrong place?
     print("You cannot use that here.")
-
 
 def execute_command(command):
     if 0 == len(command):
@@ -190,7 +177,6 @@ def execute_command(command):
     else:
         print("This makes no sense.")
 
-
 def menu(exits, room_items, inv_items):
     # Display menu
     print_menu(exits, room_items, inv_items)
@@ -203,11 +189,9 @@ def menu(exits, room_items, inv_items):
 
     return normalised_user_input
 
-
 def move(exits, direction):
     # Next room to go to
     return rooms[exits[direction]]
-
 
 # This is the entry point of our program
 def main():
@@ -234,6 +218,7 @@ Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888       888   Y88b  888     888
         '''webbrowser.open("D:\Game06\Music.mp3")  '''
         '''A soundtrack might need more work.....definatly needs more work'''
         # Display game status (room description, inventory etc.)
+        print(item_receipt["description"])
         print("")
         mins = ((count_down * 60) % 60)
         print(str(int(count_down)) + " hours " + str(int(mins)) + " minutes remaining")
@@ -247,15 +232,12 @@ Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888       888   Y88b  888     888
 
         x = win_check()
 
-
 def game_clock(traveltime):
     global count_down
     count_down = count_down - traveltime
 
-
 def is_room_open(exits, direction):
     return rooms[exits[direction]]["open"]
-
 
 def win_check():
     global plane_flag
@@ -281,10 +263,9 @@ def setup():
     item_random_setup()
     make_useable()
 
-
 def make_useable():
     '''this function makes items useable'''
-    item_list = [item_plane_ticket,item_evidence]
+    item_list = [item_evidence,item_plane_ticket]
 
     for room in rooms:
         '''This makes wallet and bike useable everywhere as I was to lazy to enter them manually into map.py'''
@@ -295,8 +276,10 @@ def make_useable():
             if item in rooms[room]["items"]:
                 '''This makes the bribe useable in the rooms with the win needing items '''
                 rooms[room]["useable"].append(item_gold_bar)
+
                 '''This makes the receipt a clue to where the evidence is being held'''
-                item_receipt["description"] = "A receipt from " + rooms[room]["name"]
+                if item["id"] == "evidence":
+                    item_receipt["description"] = "A receipt from " + rooms[room]["name"]
 
 def item_random_setup():
 
@@ -371,6 +354,7 @@ def item_use(item):
 
 
 def item_lock_check(item):
+    '''checks only the items that actually have the lock dict'''
     if item["id"] == "bike":
         if item["lock"] is True:
             print("Your bike is locked up find your key")
