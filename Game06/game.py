@@ -4,6 +4,7 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
+from you_are_here_map import *
 import random
 import webbrowser
 global plane_flag
@@ -101,32 +102,32 @@ def execute_drop(item_id):
             return
     print("You cannot drop that.")
 
-def execute_map():
-    # when called this function displays the world map for the user
-
-    print("""
-        N
-      W + E
-        S
-                                                        ---------                               
-                                         ---------------|Student|--------------|                                
-                                         |              |Union  |              |                      
-                                         |              ---------              |                             
-                                    ------------            |                  |    
-                                    | Police   |        -------------      ---------
-                   -----------------| Station  |--------|Accomadtion|------| Pub   |
-                   |                |          |        -------------      ---------                                                                                                                                 
-                   |                ------------              |                |                                                                                                                                     
-                   |                     |                    |                | 
-                   |                     |                    |                | 
-             ------------                |               ----------        -----------
-             | Castle   |----------------+---------------| Bar    |--------| Comp Sci|                    
-             |          |                |               ----------        -----------                     
-             ------------                |                   | 
-                   |                  -------                |  
-                   |------------------|Club |----------------|
-                                      ------- 
-        """)
+#def execute_map():
+#    # when called this function displays the world map for the user
+#
+#    print("""
+#        N
+#      W + E
+#        S
+#                                                        ---------                               
+#                                         ---------------|Student|--------------|                                
+#                                         |              |Union  |              |                      
+#                                         |              ---------              |                             
+#                                    ------------            |                  |    
+#                                    | Police   |        -------------      ---------
+#                   -----------------| Station  |--------|Accomadtion|------| Pub   |
+#                   |                |          |        -------------      ---------                                                                                                                                 
+#                   |                ------------              |                |                                                                                                                                     
+#                   |                     |                    |                | 
+#                   |                     |                    |                | 
+#             ------------                |               ----------        -----------
+#             | Castle   |----------------+---------------| Bar    |--------| Comp Sci|                    
+#             |          |                |               ----------        -----------                     
+#             ------------                |                   | 
+#                   |                  -------                |  
+#                   |------------------|Club |----------------|
+#                                      ------- 
+#        """)
 
 def execute_use(item_id):
     for item in inventory:
@@ -161,7 +162,9 @@ def execute_command(command):
         else:
             print("Drop what?")
     elif command[0] == "map":
-        execute_map()
+        #calls map function from other file
+        current_position_map(current_room)
+        #print(current_room)
     # executes use command:
     elif command[0] == "use":
         if len(command) > 1:
