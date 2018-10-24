@@ -241,26 +241,6 @@ Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888      888   Y88b  888 888     
 
         x = win_check()
 
-    print("""
-Y88b   d88P                     888       888 d8b                       
- Y88b d88P                      888   o   888 Y8P                       
-  Y88o88P                       888  d8b  888                           
-   Y888P  .d88b.  888  888      888 d888b 888 888 88888b.               
-    888  d88""88b 888  888      888d88888b888 888 888 "88b              
-    888  888  888 888  888      88888P Y88888 888 888  888              
-    888  Y88..88P Y88b 888      8888P   Y8888 888 888  888 d8b          
-    888   "Y88P"   "Y88888      888P     Y888 888 888  888 88P          
-                                                           8P           
-                                                           "            
-                                                                        
-888       888          888 888           888                            
-888   o   888          888 888           888                            
-888  d8b  888          888 888           888                            
-888 d888b 888  .d88b.  888 888       .d88888  .d88b.  88888b.   .d88b.  
-888d88888b888 d8P  Y8b 888 888      d88" 888 d88""88b 888 "88b d8P  Y8b 
-88888P Y88888 88888888 888 888      888  888 888  888 888  888 88888888 
-8888P   Y8888 Y8b.     888 888      Y88b 888 Y88..88P 888  888 Y8b.     
-888P     Y888  "Y8888  888 888       "Y88888  "Y88P"  888  888  "Y8888 """)
     leaderboard()
         
 
@@ -306,12 +286,14 @@ Y88b  d88P 888  888 888  888  888 Y8b.          Y88b. .d88P  Y8bd8P  Y8b.     88
     if plane_flag is True:
         print("You abandon Kirill figuring if you can escape then all is"
               "well. Your plane ticket takes you to the Maldives leaving Kirill behind to his fate")
+        print_win()
         return False
 
     if evidence_flag is True:
         print("You arrive at the prision and display the evidence proving"
               "Kirill's innoccent grumbling the police let him go. Kirill nods at"
               "and disapers into the golden sunset upon the back of a bear")
+        print_win()
         return False
 
     if len(rooms["Secret room"]["locational_items"]) == 0 :
@@ -320,8 +302,10 @@ Y88b  d88P 888  888 888  888  888 Y8b.          Y88b. .d88P  Y8bd8P  Y8b.     88
         for item in inventory:
             if item["id"] == "planeticket":
                 print("Due to the plane ticket you had you and Kirill escape to the Maldives")
+                print_win()
                 return False
         print("You're escape takes you to the Cardiff sewer system where you now live out your days as rat people")
+        print_win()
         return False
     return True
 
@@ -507,7 +491,27 @@ def print_leaderboard():
         print(str(y+1) + " : " + score_ordered[y] + " " + score_track[score_ordered[y]])
         tally =+ 1
 
-
+def print_win():
+        print("""
+Y88b   d88P                     888       888 d8b                       
+ Y88b d88P                      888   o   888 Y8P                       
+  Y88o88P                       888  d8b  888                           
+   Y888P  .d88b.  888  888      888 d888b 888 888 88888b.               
+    888  d88""88b 888  888      888d88888b888 888 888 "88b              
+    888  888  888 888  888      88888P Y88888 888 888  888              
+    888  Y88..88P Y88b 888      8888P   Y8888 888 888  888 d8b          
+    888   "Y88P"   "Y88888      888P     Y888 888 888  888 88P          
+                                                           8P           
+                                                           "            
+                                                                        
+888       888          888 888           888                            
+888   o   888          888 888           888                            
+888  d8b  888          888 888           888                            
+888 d888b 888  .d88b.  888 888       .d88888  .d88b.  88888b.   .d88b.  
+888d88888b888 d8P  Y8b 888 888      d88" 888 d88""88b 888 "88b d8P  Y8b 
+88888P Y88888 88888888 888 888      888  888 888  888 888  888 88888888 
+8888P   Y8888 Y8b.     888 888      Y88b 888 Y88..88P 888  888 Y8b.     
+888P     Y888  "Y8888  888 888       "Y88888  "Y88P"  888  888  "Y8888 """)
 
     
 ''' 
