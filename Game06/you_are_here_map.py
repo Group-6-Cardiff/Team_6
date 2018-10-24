@@ -1,7 +1,3 @@
-"★★★"
-
-#current_room = input("Enter the room for you are here command: ")
-
 def current_position_map(current_room):
     #print("Fucntion map called")
     #print (current_room["name"])

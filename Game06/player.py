@@ -1,7 +1,7 @@
 from items import *
 from map import rooms
 
-inventory = [item_wallet,item_gold_bar]
+inventory = [item_wallet]
 
 
 

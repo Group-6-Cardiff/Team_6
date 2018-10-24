@@ -4,7 +4,7 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
-from you_are_here_map.py import *
+from you_are_here_map import *
 import random
 import webbrowser
 global plane_flag
@@ -57,6 +57,8 @@ def print_menu(exits, room_items, inv_items):
         print("DROP " + item["id"].upper() + " to drop " + item["name"])'''
     for item in inv_items:
         print("USE " + item["id"].upper() + " to use " + item["name"])
+    for item in current_room["locational_items"]:
+        print("USE " + item["id"].upper() + " to use " + item["name"])
     for item in inv_items:
         print("INSPECT " + item["id"].upper() + " to inspect " + item["name"])
     print("MAP to view the map")
@@ -102,31 +104,31 @@ def execute_drop(item_id):
             return
     print("You cannot drop that.")
 
-#def execute_map():
-#      print("""
-#        N
-#      W + E
-#        S
-#                                                        ---------                               
-#                                         ---------------|Student|--------------|                                
-#                                         |              |Union  |              |                      
-#                                         |              ---------              |                             
-#                                    ------------            |                  |    
-#                                    | Police   |        -------------      ---------
-#                   -----------------| Station  |--------|Accomadtion|------| Pub   |
-#                   |                |          |        -------------      ---------                                                                                                                                 
-#                   |                ------------              |                |                                                                                                                                     
-#                   |                     |                    |                | 
-#                   |                     |                    |                | 
-#             ------------                |               ----------        -----------
-#             | Castle   |----------------+---------------| Bar    |--------| Comp Sci|                    
-#             |          |                |               ----------        -----------                     
-#             ------------                |                   | 
-#                   |                  -------                |  
-#                   |------------------|Club |----------------|
-#                                      ------- 
-#        """)
-      
+'''def execute_map():
+      print("""
+        N
+      W + E
+        S
+                                                        ---------                               
+                                         ---------------|Student|--------------|                                
+                                         |              |Union  |              |                      
+                                         |              ---------              |                             
+                                    ------------            |                  |    
+                                    | Police   |        -------------      ---------
+                   -----------------| Station  |--------|Accomadtion|------| Pub   |
+                   |                |          |        -------------      ---------                                                                                                                                 
+                   |                ------------              |                |                                                                                                                                     
+                   |                     |                    |                | 
+                   |                     |                    |                | 
+             ------------                |               ----------        -----------
+             | Castle   |----------------+---------------| Bar    |--------| Comp Sci|                    
+             |          |                |               ----------        -----------                     
+             ------------                |                   | 
+                   |                  -------                |  
+                   |------------------|Club |----------------|
+                                      ------- 
+        """)
+      '''
 def execute_use(item_id):
     for item in inventory:
         if item["id"] == item_id and item in current_room["useable"]:
@@ -134,7 +136,11 @@ def execute_use(item_id):
             item_use(item)# add specific usage data here
             print(str(item["id"]) + " has been used")
             return
-
+    for item in current_room["locational_items"]:
+        if item["id"] == item_id and item in current_room["useable"]:
+            item_use(item)
+            print(str(item["id"]) + " has been used")
+            return
     # statement whether item cannot be used or if used up due to wrong place?
     print("You cannot use that here.")
 
@@ -234,7 +240,27 @@ Y88b  d88P 888  888  Y8bd8P  888 888  888 Y88b 888      888   Y88b  888 888     
         execute_command(command)
 
         x = win_check()
-        
+
+    print("""
+Y88b   d88P                     888       888 d8b                       
+ Y88b d88P                      888   o   888 Y8P                       
+  Y88o88P                       888  d8b  888                           
+   Y888P  .d88b.  888  888      888 d888b 888 888 88888b.               
+    888  d88""88b 888  888      888d88888b888 888 888 "88b              
+    888  888  888 888  888      88888P Y88888 888 888  888              
+    888  Y88..88P Y88b 888      8888P   Y8888 888 888  888 d8b          
+    888   "Y88P"   "Y88888      888P     Y888 888 888  888 88P          
+                                                           8P           
+                                                           "            
+                                                                        
+888       888          888 888           888                            
+888   o   888          888 888           888                            
+888  d8b  888          888 888           888                            
+888 d888b 888  .d88b.  888 888       .d88888  .d88b.  88888b.   .d88b.  
+888d88888b888 d8P  Y8b 888 888      d88" 888 d88""88b 888 "88b d8P  Y8b 
+88888P Y88888 88888888 888 888      888  888 888  888 888  888 88888888 
+8888P   Y8888 Y8b.     888 888      Y88b 888 Y88..88P 888  888 Y8b.     
+888P     Y888  "Y8888  888 888       "Y88888  "Y88P"  888  888  "Y8888 """)
     leaderboard()
         
 
@@ -253,17 +279,50 @@ def win_check():
     '''Contains the victory conditions and also the losing conditions'''
     if count_down <= 0:
         print("you are out of time Kirill and you are going to spend the rest of your days in a cell")
-        print("game over")
+        print("""
+Y88b   d88P                     888  
+ Y88b d88P                      888                                                   
+  Y88o88P                       888                                                   
+   Y888P  .d88b.  888  888      888      .d88b.  .d8888b   .d88b.                     
+    888  d88""88b 888  888      888     d88""88b 88K      d8P  Y8b                    
+    888  888  888 888  888      888     888  888 "Y8888b. 88888888                    
+    888  Y88..88P Y88b 888      888     Y88..88P      X88 Y8b.                        
+    888   "Y88P"   "Y88888      88888888 "Y88P"   88888P'  "Y8888                     
+                                                                                      
+                                                                                      
+                                                                                      
+ .d8888b.                                        .d88888b.                            
+d88P  Y88b                                      d88P" "Y88b                           
+888    888                                      888     888                           
+888         8888b.  88888b.d88b.   .d88b.       888     888 888  888  .d88b.  888d888 
+888  88888     "88b 888 "888 "88b d8P  Y8b      888     888 888  888 d8P  Y8b 888P"   
+888    888 .d888888 888  888  888 88888888      888     888 Y88  88P 88888888 888     
+Y88b  d88P 888  888 888  888  888 Y8b.          Y88b. .d88P  Y8bd8P  Y8b.     888     
+ "Y8888P88 "Y888888 888  888  888  "Y8888        "Y88888P"    Y88P    "Y8888  888     
+                                                                                      
+                                                                                      """)
         return False
 
     if plane_flag is True:
-        print("Well you done it you've escaped leaving Kirill behind to his fate")
+        print("You abandon Kirill figuring if you can escape then all is"
+              "well. Your plane ticket takes you to the Maldives leaving Kirill behind to his fate")
         return False
 
     if evidence_flag is True:
-        print("You've proven Kirill innoccent well done")
+        print("You arrive at the prision and display the evidence proving"
+              "Kirill's innoccent grumbling the police let him go. Kirill nods at"
+              "and disapers into the golden sunset upon the back of a bear")
         return False
-    
+
+    if len(rooms["Secret room"]["locational_items"]) == 0 :
+        print("The prison cell opens freeing Kirill you both dash out the prision"
+              "freedom at last")
+        for item in inventory:
+            if item["id"] == "planeticket":
+                print("Due to the plane ticket you had you and Kirill escape to the Maldives")
+                return False
+        print("You're escape takes you to the Cardiff sewer system where you now live out your days as rat people")
+        return False
     return True
 
 def setup():
@@ -301,6 +360,8 @@ def item_random_setup():
     safe_rooms = list(rooms.keys())
     safe_rooms.remove("Bedroom")
     safe_rooms.remove("Student Union")
+    safe_rooms.remove("Staff room")
+    safe_rooms.remove("Secret room")
     item_randomiser(item_list,safe_rooms)
 
     '''This item randomiser splits the victory items between the 3 win locations'''
@@ -335,17 +396,26 @@ def item_use(item):
     if item["id"] == "id":
         rooms["Staff room"]["open"]=True
         print("You jammed open the doors")
+        print("The staff room is now open")
 
-     if item["id"] == "safe":
-        pin=int(input(""))
+    if item["id"] == "safe":
+        pin= input("Enter a pin: ")
         if pin==("1234"):
             current_room["items"].append(item_coins)
+            current_room["locational_items"].remove(item_safe)
         else:
             print("Invalid pin")
 
-    if item["id"] == "phone_box":
-       if input("For emergeny only")=="999":
-           rooms["Secret room"]["open"]=True
+    if item["id"] == "phonebox":
+        for item in inventory:
+            if item["id"] == "coins":
+                number = input("For emergency only ")
+                if number =="999":
+                    rooms["Secret room"]["open"]=True
+                    inventory.remove(item_coins)
+                    print("The secret room is now open")
+                    return           
+        print("you need coins to make this work")
 
     if item["id"] == "bike":
         for room in rooms:
@@ -373,6 +443,24 @@ def item_use(item):
                 item_evidence["lock"] = False
                 print("The Bartender looks hungrily at it, looking left and right quickly he takes it from you and "
                       "slowly goes into the staff leaving the evidence behind him")
+
+    if item["id"] == "bookshelf":
+        for x in inventory:
+            if x["id"] == "book":
+                inventory.remove(item_book)
+                current_room["locational_items"].remove(item_bookshelf)
+                print("You place the book in the bookshelf")
+                
+        print("I think I'll need a book")
+
+    if item["id"] == "fridge":
+        for x in inventory:
+            if x["id"] == "beer":
+                inventory.remove(item_beer)
+                current_room["locational_items"].remove(item_fridge)
+                print("You place the beer in the fridge")
+                        
+        print("I think I'll need a beer")
 
 def item_lock_check(item):
     '''checks only the items that actually have the lock dict'''

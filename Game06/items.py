@@ -120,7 +120,7 @@ item_safe = {
     "description":"Maybe there is something valuable there"
 }
 item_phone_box = {
-    "id": "phone_box",
+    "id": "phonebox",
 
     "name":"Phone box ",
 

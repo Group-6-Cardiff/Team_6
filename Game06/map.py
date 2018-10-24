@@ -238,7 +238,7 @@ are locked. You spot than on the safe there is a short note "Code is 10011010010
 
     "open":False,
 
-    "useable":[item_coins, item_safe]
+    "useable":[item_coins, item_safe,item_phone_box]
 
 }
 room_secret_room = {
@@ -247,18 +247,18 @@ room_secret_room = {
     "description":
     """Well it's secret. You can hear Kirill on the other side of locked doors """,
 
-    "exits": {"out": "Police staff room", "in": "Prison cell"},
+    "exits": {"out": "Staff room"},
 
     "items": [item_beer, item_book],
 
-    "travel": {"out":0.05,  "in": 0.05},
+    "travel": {"out":0.05},
     
-    "locational_items":[item_bookshelf, item_fridge],
+    "locational_items":[item_fridge, item_bookshelf],
 
     "open":False,
 
-    "useable":[item_beer, item_book]
-
+    "useable":[item_fridge, item_bookshelf]
+}
 
 rooms = {
     "Student Union": room_student_union,
