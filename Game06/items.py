@@ -96,7 +96,7 @@ item_coins = {
 
     "name":"Coins ",
 
-    "description":""
+    "description":"Various loose change"
 }
 item_beer = {
     "id": "beer",

@@ -1,0 +1,8 @@
+tom,000
+dave,030
+john,112
+jim,020
+Satpal,047
+Jimmy,130
+James,224
+Bob,148

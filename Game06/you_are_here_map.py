@@ -54,7 +54,7 @@ def current_position_map(current_room):
                                           ------- 
             """)
 
-    elif current_room["name"] == "Your Accomodation" or current_room["name"] == "Your Bedroom":
+    elif current_room["name"] == "Your Accommodation" or current_room["name"] == "Your Bedroom":
         print("""
             N                                                          Key:
           W + E                                                        You are here ★
