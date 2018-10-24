@@ -4,7 +4,7 @@ item_id = {
     "name": "id card",
 
     "description":
-        """You new shiny student ID card. Expires 1 June 2017.
+        """Your new shiny student ID card. Expires 1 June 2019.
     You wonder why they have printed a suicide hotline number on it?..."""
 }
 
@@ -14,7 +14,7 @@ item_room_keys = {
     "name": "Room Keys",
 
     "description":
-        "Better not to lose them..."
+        "Better not lose them..."
 }
 
 item_wallet = {
@@ -24,7 +24,7 @@ item_wallet = {
 
     "description":
         """Lucky you! You still have your wallet after last night. You look inside
-        hoping that you still have money for tuition fee but what's left is 20 quid and a receipt
+        hoping that you still have money for your tuition fee but what's left is 20 quid and a receipt
         """
 }
 
@@ -53,8 +53,8 @@ item_evidence = {
 
     "name": "a video evidence",
 
-    "description": """VHS recording from your favourite pub's CCTV where
-is evidence of your innocence. Who is still using VHS?""",
+    "description": """VHS recording from your favourite pub's CCTV which
+is evidence that can prove your innocence. Who is still using VHS?""",
 
     "lock": True
 }
@@ -64,15 +64,15 @@ item_gold_bar = {
 
     "name": "GOLD BAR",
 
-    "description": """Well it's a GOLD BAR!!! You can get anything you ever wished.
-You can use it as a bribe"""
+    "description": """Well it's a GOLD BAR!!! You can buy anything you have ever wished for.
+You can also use it as a bribe"""
 }
 item_plane_ticket = {
     "id": "planeticket",
 
     "name": "a plane ticket to Maldives",
 
-    "description": "A plane ticket for two to Maldives where it's always sunny",
+    "description": "A plane ticket for two to the Maldives where it's always sunny",
 
     "lock": True
 }
@@ -140,4 +140,3 @@ item_fridge = {
 
     "description":"Well it's empty"
 }
-
